@@ -7,8 +7,8 @@ import { Component, OnInit } from "@angular/core";
 })
 export class BTDataBindingComponent implements OnInit {
   user: any = {
-    email: "Enter Your Email",
-    name: "Enter Your Name",
+    email: "",
+    name: "",
   };
 
   constructor() {}
