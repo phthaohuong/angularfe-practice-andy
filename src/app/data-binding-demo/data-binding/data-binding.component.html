@@ -1,0 +1,53 @@
+<!-- Oneway Binding -->
+<!-- Demo String Interpolation & Properties Binding -->
+<div class="container">
+  <h3 class="display-4 m-5">String Interpolation & Properties Binding</h3>
+  <div class="row">
+    <div class="col-4">
+      <div class="card">
+        <img class="card-img-top" [src]="user.img" alt="" />
+        <div class="card-body">
+          <h4 class="card-title">{{ user.name }}</h4>
+          <p class="card-text">{{ user.desc }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <img class="card-img-top" [src]="user.img" alt="" />
+        <div class="card-body">
+          <h4 class="card-title">{{ user.name }}</h4>
+          <p class="card-text">{{ user.desc }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <img class="card-img-top" [src]="user.img" alt="" />
+        <div class="card-body">
+          <h4 class="card-title">{{ user.name }}</h4>
+          <p class="card-text">{{ user.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <!-- Demo Event Binding -->
+  <h3 class="display-4 m-5">Event Binding</h3>
+
+  <div class="input-group">
+    <input inputName="Lone" #inputNameObject />
+    <button class="btn btn-primary" (click)="ChangeName(inputNameObject)">
+      ChangeName
+    </button>
+  </div>
+
+  <!-- Demo Two-way Binding -->
+  <!-- Combination of EventBinding & Properties Binding -->
+  <h3 class="display-4 m-5">Two Way Binding</h3>
+  <p>Age: {{ user.age }}</p>
+  <div class="input-group">
+    <input inputName="Lone" [(ngModel)]="user.age" />
+  </div>
+</div>
