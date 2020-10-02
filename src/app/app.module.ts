@@ -5,6 +5,7 @@ import { AppComponent } from "./app.component";
 import { DataBindingDemoModule } from "./data-binding-demo/data-binding-demo.module";
 import { BTDataBindingModule } from "./btdata-binding/btdata-binding.module";
 import { DirectivesDemoModule } from "./directives-demo/directives-demo.module";
+import { BtDirectivesModule } from "./bt-directives/bt-directives.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,6 +14,7 @@ import { DirectivesDemoModule } from "./directives-demo/directives-demo.module";
     DataBindingDemoModule,
     BTDataBindingModule,
     DirectivesDemoModule,
+    BtDirectivesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
