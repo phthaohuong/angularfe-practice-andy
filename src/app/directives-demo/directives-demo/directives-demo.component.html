@@ -1,0 +1,109 @@
+<div class="container">
+  <!-- Demo ngIf -->
+  <h1 class="text-center display-4">Demo NgIf</h1>
+
+  <div class="card w-25">
+    <img class="card-img-top" [src]="user.img" alt="" />
+    <div class="card-body">
+      <h4 class="card-title">{{ user.name }}</h4>
+      <p class="card-text">{{ user.id }}</p>
+    </div>
+    <div *ngIf="status">
+      <p>{{ user.desc }}</p>
+    </div>
+    <button (click)="ShowDetail()" class="btn btn-primary">Show Detail</button>
+  </div>
+
+  <!-- Demo ngIfElse -->
+  <h1 class="text-center display-4">Demo NgIfElse</h1>
+  <div *ngIf="isLogin; else templateLogin">
+    <div class="row">
+      <p class="mr-3">Hi {{ user.name }}</p>
+      <button class="btn btn-primary" (click)="signOut()">Sign Out</button>
+    </div>
+  </div>
+
+  <ng-template #templateLogin>
+    <div class="form-group">
+      <p>Email</p>
+      <input #txtEmail placeholder="enter your email" />
+    </div>
+    <div class="form-group">
+      <p>Password</p>
+      <input #txtPassword type="password" placeholder="enter your password" />
+    </div>
+    <button
+      (click)="signIn(txtEmail.value, txtPassword.value)"
+      class="btn btn-warning"
+    >
+      Sign In
+    </button>
+    <p>{{ notifyLogin }}</p>
+  </ng-template>
+
+  <!-- Demo ngSwitch -->
+  <h3 class="text-center display-4">Demo ngSwitch</h3>
+
+  <div [ngSwitch]="color">
+    <p *ngSwitchCase="'red'" style="color: red">Andy</p>
+    <p *ngSwitchCase="'green'" style="color: green">Andy</p>
+    <p *ngSwitchCase="'blue'" style="color: blue">Andy</p>
+  </div>
+
+  <select #colorSelect (change)="changeColor(colorSelect.value)">
+    <option value="red" selected>Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+  </select>
+
+  <h3 class="text-center display-4">Demo ngFor</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of productArr">
+      <td>{{ item.id }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.price }}</td>
+      <td>{{ item.desc }}</td>
+    </tbody>
+    <div class="form">
+      <div class="form-group">
+        <p>ID</p>
+        <input #txtID type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <p>Name</p>
+        <input #txtName type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <p>Price</p>
+        <input #txtPrice type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <p>Desc</p>
+        <input #txtDesc type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <button
+          class="btn btn-primary"
+          (click)="
+            addNewItem(
+              txtID.value,
+              txtName.value,
+              txtPrice.value,
+              txtDesc.value
+            )
+          "
+        >
+          Add New Item
+        </button>
+      </div>
+    </div>
+  </table>
+</div>
