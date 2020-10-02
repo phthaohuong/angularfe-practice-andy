@@ -62,12 +62,17 @@
       <th>Theatres</th>
       <th>Price</th>
     </thead>
-    <tbody *ngFor="let movie of movieArr">
-      <td>{{ movie.id }}</td>
-      <td>{{ movie.name }}</td>
-      <td>{{ movie.showtimes }}</td>
-      <td>{{ movie.theatres }}</td>
-      <td>{{ movie.price }}</td>
+    <tbody>
+      <tr
+        [ngClass]="{ 'bg-dark text-light': i % 2 == 0 }"
+        *ngFor="let movie of movieArr; let i = index"
+      >
+        <td>{{ movie.id }}</td>
+        <td>{{ movie.name }}</td>
+        <td>{{ movie.showtimes }}</td>
+        <td>{{ movie.theatres }}</td>
+        <td>{{ movie.price }}</td>
+      </tr>
     </tbody>
   </table>
 </ng-template>
