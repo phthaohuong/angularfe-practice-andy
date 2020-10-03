@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-12 text-left">
+    <button
+      [ngClass]="{ 'btn-success': newsType === 'promotion' }"
+      (click)="chooseNewsType('promotion')"
+      class="btn btn-secondary mr-3 my-3"
+    >
+      Promotion
+    </button>
+    <button
+      (click)="chooseNewsType('review')"
+      [ngClass]="{ 'btn-success': newsType === 'review' }"
+      class="btn btn-secondary mr-3 my-3"
+    >
+      Review
+    </button>
+    <button
+      [ngClass]="{ 'btn-success': newsType === 'articles' }"
+      (click)="chooseNewsType('articles')"
+      class="btn btn-secondary"
+    >
+      Articles
+    </button>
+  </div>
+</div>
+
+<div class="row" [ngSwitch]="newsType">
+  <div class="col-12">
+    <app-promotion *ngSwitchCase="'promotion'"></app-promotion>
+  </div>
+
+  <div class="col-12">
+    <app-review *ngSwitchCase="'review'"></app-review>
+  </div>
+
+  <div class="col-12">
+    <app-articles *ngSwitchCase="'articles'"></app-articles>
+  </div>
+</div>
