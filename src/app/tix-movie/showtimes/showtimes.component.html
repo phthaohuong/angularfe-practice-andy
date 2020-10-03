@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-12">
+    <button
+      [ngClass]="{ 'btn-success': !upcomingTab }"
+      (click)="showNowShowingTab()"
+      class="btn mr-3 my-4 text-light"
+    >
+      Now Showing
+    </button>
+    <button
+      [ngClass]="{ 'btn-success': upcomingTab }"
+      (click)="showUpComingTab()"
+      class="btn my-4 text-light"
+    >
+      Upcoming
+    </button>
+  </div>
+</div>
+
+<div class="row" *ngIf="upcomingTab; else nowShowingLayout">
+  <div class="col-12">
+    <app-upcoming></app-upcoming>
+  </div>
+</div>
+
+<ng-template #nowShowingLayout>
+  <div class="col-12">
+    <app-now-showing></app-now-showing>
+  </div>
+</ng-template>
