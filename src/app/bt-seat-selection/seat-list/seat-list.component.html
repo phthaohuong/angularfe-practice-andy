@@ -1,0 +1,32 @@
+<div class="container">
+  <h3 class="display-4 my-3">Choose Your Seat</h3>
+  <div class="row">
+    <div class="col-6 text-center">
+      <!-- Seat Selection Area -->
+      <app-seat-item
+        [SeatItem]="item"
+        *ngFor="let item of SeatArr; let i = index"
+        (seatSelectedEvent)="chooseSeat($event, item)"
+      >
+      </app-seat-item>
+    </div>
+    <div class="col-6">
+      <p *ngFor="let seat of seatSelectingArr">
+        <span> Seat Selecting: {{ seat.TenGhe + "," }}</span>
+        <span> Price: {{ seat.Gia }}</span>
+      </p>
+      <hr />
+
+      <!-- Seat Remaining Info -->
+      <div class="d-flex justify-content-between">
+        <h5>Remaining Seat</h5>
+        <h5>{{ remainingSeat }}</h5>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <h5>Selected Seat Amt</h5>
+        <h5>{{ selectedSeatAmt }}</h5>
+      </div>
+    </div>
+  </div>
+</div>

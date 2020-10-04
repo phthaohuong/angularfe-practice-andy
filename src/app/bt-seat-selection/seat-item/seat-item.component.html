@@ -1,0 +1,15 @@
+<ng-container *ngIf="!SeatItem.TrangThai; else SelectedSeatTemplate">
+  <button
+    (click)="chooseNewSeat()"
+    class="btn seat"
+    [ngClass]="{ selectingSeat: seatStatus }"
+  >
+    {{ SeatItem.SoGhe }}
+  </button>
+</ng-container>
+
+<ng-template #SelectedSeatTemplate>
+  <button class="btn selectedSeat" disabled>
+    {{ SeatItem.SoGhe }}
+  </button>
+</ng-template>
